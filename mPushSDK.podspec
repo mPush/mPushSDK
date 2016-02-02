@@ -11,10 +11,11 @@ Pod::Spec.new do |s|
     s.social_media_url   = "http://weibo.com/p/1006065407131098"
 
     s.source       = { :git => "https://github.com/mPush/mPushSDK.git", :tag => "v1.9.1" }
-    s.platform 	    = "ios"
+    s.platform 	    = :ios, "6.0"
 
     s.source_files = "Library/*.h"
-    s.vendored_libraries = "Library/*.a"
+    s.preserve_paths = "Library/*.a"
+    s.ios.vendored_libraries = "Library/*.a"
 
     s.ios.frameworks = "SystemConfiguration", "CoreTelephony", "Security", "CoreLocation", "CFNetwork"
     s.weak_frameworks = "AdSupport"
