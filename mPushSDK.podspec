@@ -14,8 +14,7 @@ Pod::Spec.new do |s|
     s.platform 	    = "ios"
 
     s.source_files = "Library/*.h"
-    s.preserve_paths = "Library/*.a"
-    s.ios.vendored_library = "Library/*.a"
+    s.vendored_libraries = "Library/*.a"
 
     s.ios.frameworks = "SystemConfiguration", "CoreTelephony", "Security", "CoreLocation", "CFNetwork"
     s.weak_frameworks = "AdSupport"
