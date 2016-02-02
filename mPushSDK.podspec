@@ -13,9 +13,9 @@ Pod::Spec.new do |s|
     s.source       = { :git => "https://github.com/mPush/mPushSDK.git", :tag => "v1.9.1" }
     s.platform = 'ios'
 
-    s.source_files = 'Library/*.h'
-    s.preserve_paths = 'Library/*.a'
-    s.vendored_libraries = 'Library/*.a'
+    s.source_files = 'Library/PushManager.h'
+    s.preserve_paths = 'Library/libmPushSDK.a'
+    s.vendored_libraries = 'Library/libmPushSDK.a'
 
     s.frameworks = "SystemConfiguration", "CoreTelephony", "Security", "CoreLocation", "CFNetwork"
     s.weak_frameworks = "AdSupport"
