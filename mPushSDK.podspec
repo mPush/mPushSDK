@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
 
-    s.name         = "mPushSDK"
+    s.name         = "mPush"
     s.version      = "1.9.1"
     s.summary      = "mPush Push SDK Library."
     s.description  = "mPush SDK for iOS. \n魔推管理Portal提供易用的消息推送工具，使得您公司的业务运营人员，能够很简单方便地操作、推送通知。\n            详情请查看官网：http://mpush.cn/ \n"
