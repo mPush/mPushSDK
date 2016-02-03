@@ -11,7 +11,7 @@ ___
 
 1.在你项目的 Podfile 中添加以下代码：
 
-`pod ‘mPushSDK’`
+`pod ‘mPush’`
 
 2.执行 pod 安装命令
 
