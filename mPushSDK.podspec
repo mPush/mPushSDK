@@ -9,16 +9,16 @@ Pod::Spec.new do |s|
     s.license      = { :type => "Copyright", :text => "LICENSE Copyright 2014 - 2015"}
     s.author             = { "mPush" => "support@mrocker.com" }
     s.social_media_url   = "http://weibo.com/p/1006065407131098"
-
+ 
     s.source       = { :git => "https://github.com/mPush/mPushSDK.git", :tag => s.version }
     s.platform = 'ios'
-    s.ios.deployment_target = "6.0"
+    s.ios.deployment_target = "6.0" 
 
-    s.source_files = 'Library/*.h'
-    s.preserve_paths = 'Library/*.a'
-    s.vendored_libraries = 'Library/*.a'
+    s.source_files = "Library/*.h"
+    s.preserve_paths = "Library/*.a"
+    s.ios.vendored_libraries = "Library/*.a"
 
-    s.frameworks = "SystemConfiguration", "CoreTelephony", "Security", "CoreLocation", "CFNetwork"
+    s.ios.frameworks = "SystemConfiguration", "CoreTelephony", "Security", "CoreLocation", "CFNetwork"
     s.weak_frameworks = "AdSupport"
 
     s.requires_arc = true
