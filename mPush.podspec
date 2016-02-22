@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
     s.name         = "mPush"
-    s.version      = "1.9.1"
+    s.version      = "1.9.2"
     s.summary      = "mPush Push SDK Library."
     s.description  = "mPush SDK for iOS. \n魔推管理Portal提供易用的消息推送工具，使得您公司的业务运营人员，能够很简单方便地操作、推送通知。\n            详情请查看官网：http://mpush.cn/ \n"
     s.homepage     = "http://mpush.cn/"
@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
     s.author             = { "mPush" => "support@mrocker.com" }
     s.social_media_url   = "http://weibo.com/p/1006065407131098"
 
-    s.source       = { :git => "https://github.com/mPush/mPushSDK.git", :tag => "v1.9.1" }
+    s.source       = { :git => "https://github.com/mPush/mPushSDK.git", :tag => "v1.9.2" }
     s.platform = 'ios'
     s.ios.deployment_target = "6.0" 
 
