@@ -11,6 +11,7 @@ typedef NS_ENUM(NSUInteger, LocalPushActionType) {
 };
 
 
+
 #pragma mark --
 #pragma mark -- PushManager 通知代理
 
@@ -27,23 +28,11 @@ typedef NS_ENUM(NSUInteger, LocalPushActionType) {
 *
 *  @return BOOL 当返回YES时，仅处理至当前事件处，后续事件将不再执行，当返回NO时，按照事件链继续执行，直至返回YES或者所有事件执行完。
 */
+
+
 - (BOOL)onMessage:(NSString *)title
           content:(NSString *)content
         extention:(NSDictionary *)extention;
-
-/**
- *  收到消息后的代理回调方法
- *
- *  @param content          消息内容
- *  @param userinfo         消息完整结构体
- *                   action 参数, tp : 1=打开应用内页面, 2=打开应用，3=打开url（默认 tp = 2）
- *                               val :对应tp所指定的值，tp为1时，val是所指定应用内界面的别名；tp为3时，val是所指定的url地址；tp为2时，val为空。（默认为空）
- *
- *  @param applicationState 收到消息时，应用的状态
- *
- *  @return BOOL 当返回YES时，仅处理至当前事件处，后续事件将不再执行，当返回NO时，按照事件链继续执行，直至返回YES或者所有事件执行完。
- */
-//- (BOOL)onMessage:(NSString *)content userinfo:(NSDictionary *)userinfo applicationState:(UIApplicationState)applicationState;
 
 @end
 
@@ -156,40 +145,6 @@ typedef NS_ENUM(NSUInteger, LocalPushActionType) {
  */
 + (void)ignoreGPS:(BOOL)ignore;
 
-
-#pragma MARK --
-#pragma MARK --  本地通知
-
-/**
-*  本地推送，最多支持64个
-*
-*  @param title      通知标题
-*  @param content    通知内容
-*  @param actionType   动作类型  (定义接收到本地通知时，可执行的动作类型，可参见 LocalPushActionType 枚举)
-*  @param actionValue   动作参数 (定义接收到本地通知时，可执行的动作参数，根据 LocalPushActionType 设置)
-*  @param extention  自定义参数集合
-*  @param fireDate   通知发生时间
-*
-*  @return SDK分配给本通知的唯一标识 key
-*/
-+ (NSString *)sendLocalPushMsg:(NSString *)title
-                       content:(NSString *)content
-                    actionType:(LocalPushActionType)actionType
-                   actionValue:(NSString *)actionValue
-                    extentions:(NSDictionary *)extention
-                      fireDate:(NSDate *)fireDate;
-
-/**
-*  取消指定标识的单个本地通知
-*
-*  @param key 通知标识，为创建时所分配。
-*/
-+ (void)cancelLocalPushForKey:(NSString *)key;
-
-/**
-*  取消所有的本地通知
-*/
-+ (void)cancelAllLocalPush;
  
 /**
 *  为设备设置别名或移除别名,设置的前提条件是设备的DeviceToken已经获取成功。
@@ -217,6 +172,40 @@ typedef NS_ENUM(NSUInteger, LocalPushActionType) {
 */
 + (void)removeBadge;
 
+#pragma MARK --
+#pragma MARK --  本地通知
+
+/**
+ *  本地推送，最多支持64个
+ *
+ *  @param title      通知标题
+ *  @param content    通知内容
+ *  @param actionType   动作类型  (定义接收到本地通知时，可执行的动作类型，可参见 LocalPushActionType 枚举)
+ *  @param actionValue   动作参数 (定义接收到本地通知时，可执行的动作参数，根据 LocalPushActionType 设置)
+ *  @param extention  自定义参数集合
+ *  @param fireDate   通知发生时间
+ *
+ *  @return SDK分配给本通知的唯一标识 key
+ */
++ (NSString *)sendLocalPushMsg:(NSString *)title
+                       content:(NSString *)content
+                    actionType:(LocalPushActionType)actionType
+                   actionValue:(NSString *)actionValue
+                    extentions:(NSDictionary *)extention
+                      fireDate:(NSDate *)fireDate;
+
+/**
+ *  取消指定标识的单个本地通知
+ *
+ *  @param key 通知标识，为创建时所分配。
+ */
++ (void)cancelLocalPushForKey:(NSString *)key;
+
+/**
+ *  取消所有的本地通知
+ */
++ (void)cancelAllLocalPush;
+
 /**
 *  获取验证码接口（调用此接口前，请确保手机号正常可用。）
 *
@@ -224,6 +213,8 @@ typedef NS_ENUM(NSUInteger, LocalPushActionType) {
 *  @param timeInterval 验证码有效时间，单位分钟，默认为3分钟
 *  @param finishBlock  接口请求成功后的回调 成功是返回code，失败或者其他错误返回errorMsg
 */
-+ (void)authSms:(NSString *)mobile timeInterval:(NSTimeInterval)timeInterval finished:(void (^)(NSString *code, NSString *errorMsg))finishBlock;
++ (void)authSms:(NSString *)mobile
+   timeInterval:(NSTimeInterval)timeInterval
+       finished:(void (^)(NSString *code, NSString *errorMsg))finishBlock;
 
 @end
